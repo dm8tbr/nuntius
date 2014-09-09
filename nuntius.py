@@ -34,7 +34,7 @@ def on_connect(mosq, userdata, rc):
     if rc == 0:
         print("Connected to Trusor: "+mqtt_server)
         subscribe(mosq)
-        mqttc.publish(mqtt_topic_base+"nuntius/state", "connected", 2, True)
+        if mqtt_set_will: mqttc.publish(mqtt_topic_base+"nuntius/state", "connected", 2, True)
     else:
         print("Connection failed with error code: "+str(rc))
 

@@ -29,6 +29,7 @@ def on_log(mosq, obj, level, string):
 
 def subscribe(mosq):
     mqttc.subscribe("sailfish/broadcast/#", 2)
+    mqttc.subscribe(mqtt_topic_base+"push/#", 2)
 
 def on_connect(mosq, userdata, rc):
     if rc == 0:
